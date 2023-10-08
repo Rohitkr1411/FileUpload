@@ -1,0 +1,158 @@
+<! DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <title> Bootstrap 4 File upload Example </title>  
+  <meta charset="utf-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"> </script>  
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">  
+</head>  
+<style>  
+.card {  
+  margin-top: 100px;  
+}  
+.btn-upload {  
+    padding: 10px 20px;  
+    margin-left: 10px;  
+}  
+.btn-success:not(:disabled):not(.disabled).active, .btn-success:not(:disabled):not(.disabled):active, .show>.btn-success.dropdown-toggle {  
+    color: #fff;  
+    background-color: #0062cc;  
+    border-color: #1c7430;  
+}  
+h1 {  
+font-family: 'Indie Flower', cursive;  
+font-size: 32px;  
+  color: black;  
+  font-weight: bold;  
+}  
+body {  
+  margin: 0;  
+  padding: 0;  
+  color: var(--clr-black);  
+  font-family: 'Poppins', sans-serif;  
+  font-size: 1.125rem;  
+  min-height: 100vh;  
+  display: flex;  
+  justify-content: center;  
+  align-items: center;  
+  background-image: linear-gradient(45deg, rgba(194, 233, 221, 0.5) 1%, rgba(104, 119, 132, 0.5) 100%), linear-gradient(-45deg, #494d71 0%, rgba(217, 230, 185, 0.5) 80%);  
+}  
+.upload-input-group {  
+    margin-bottom: 10px;  
+}  
+.input-group>.custom-select:not(:last-child) {  
+  height: 45px;  
+}  
+.input-group>.form-control:not(:last-child) {  
+  height: 45px;  
+}  
+</style>  
+<body>  
+<div class="container">  
+    <div class="row">  
+<h1> Upload Files to S3 </h1>  
+        <div class="col-lg-12">  
+            <div class="card">  
+                <div class="card-header">  
+                    <div class="float-left"> <strong> Upload in Demo S3 Bucket </strong> </div>  
+                </div>  
+                <div class="card-body card-block">  
+                    <form action="/api/upload" method="post" enctype="multipart/form-data" class="form-horizontal">  
+                        <div class="row form-group">  
+                            <div class="col-12 col-md-12">  
+                                <div class="control-group" id="fields">  
+                                    <label class="control-label" for="field1">  
+                                        Upload File  
+                                    </label>  
+                                    <div class="controls">  
+                                        <div class="entry input-group upload-input-group">  
+                                            <input class="form-control" name="fields[]" type="file">  
+                                            <!-- <button class="btn btn-upload btn-success btn-add" type="button">  
+                                                <!-- <i class="fa fa-plus"> </i>   -->
+                                            <!-- </button>   --> 
+                                        </div>  
+                                    </div>  
+                                    <button class="btn btn-primary"> Upload </button>  
+                                </div>  
+                            </div>  
+                        </div>  
+                    </form>  
+                </div>  
+            </div>  
+      </div>  
+  </div>  
+</div>  
+<script>  
+        $(function () {  
+            $(document).on('click', '.btn-add', function (e) {  
+                e.preventDefault();  
+                var controlForm = $('.controls:first'),  
+                    currentEntry = $(this).parents('.entry:first'),  
+                    newEntry = $(currentEntry.clone()).appendTo(controlForm);  
+                newEntry.find('input').val('');  
+                controlForm.find('.entry:not(:last) .btn-add')  
+                    .removeClass('btn-add').addClass('btn-remove')  
+                    .removeClass('btn-success').addClass('btn-danger')  
+                    .html('<span class="fa fa-trash"> </span>');  
+            }).on('click', '.btn-remove', function (e) {  
+                $(this).parents('.entry:first').remove();  
+                e.preventDefault();  
+                return false;  
+            });  
+        });  
+</script>  
+</body>  
+</html> 
+
+
+
+
+
+
+
+
+
+
+
+<!-- <html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title>File Upload</title>
+  <!-- <link rel="stylesheet" href="home.css"> -->
+<!-- </head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   
+      <div class="container">
+       
+        <form action="/api/upload" enctype="multipart/form-data" method="post" id="uploadForm">
+            <div class="input-group">
+                <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                <button class="btn btn-outline-secondary" type="submit" id="inputGroupFileAddon04">Upload</button>
+              </div>
+            <!-- //<button style="font-size: 30px;" type="submit" class="btn btn-success">Upload</button> -->
+          <!-- </form>
+        
+         
+      </div> --> 
+    <!-- <div class="main-container">
+
+    <div class="container">
+    <h1 class="title">File Upload</h1>
+    <form action="/api/upload" enctype="multipart/form-data" method="post" id="uploadForm">
+      <div class="form-group">
+        <label for="file" class="label">Select a file:</label>
+        <input name="file" type="file" id="file" class="input" />
+      </div>
+      <button style="font-size: 30px;" type="submit" class="btn">Upload</button>
+    </form>
+  </div> -->
+<!-- </div> -->
+
+<!-- </body>
+</html> --> 

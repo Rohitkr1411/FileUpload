@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Download Link is Ready</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"> </script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+    <!-- Custom CSS for styling -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        .jumbotron {
+            background-color: #007bff;
+            color: #fff;
+            padding: 30px;
+        }
+
+        .download-btn {
+            font-size: 18px;
+            padding: 10px 30px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .download-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+
+        const tinyUrl = '<%= tinyUrl %>';
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const button = document.getElementById('btnd');
+            button.addEventListener('click', () => {
+                // Redirect to the TinyURL when the button is clicked
+                window.location.href = tinyUrl;
+            });
+        });
+
+    </script>
+
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Your Download Link is Ready</h1>
+            <p class="lead">Click the button below to download your file:</p>
+            <p>This is the Link to download file: <%= tinyUrl %> , Click the download button below. </p>
+            <button id="btnd" class="btn btn-primary">Download</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
