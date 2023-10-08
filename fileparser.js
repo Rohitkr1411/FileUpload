@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 const helmet = require("helmet")
 
 const app = express()
-
+const fs = eval('require("fs")')
 
 const accessKeyId = process.env.AWS_ACCESS_KEY_ID;
 const secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
