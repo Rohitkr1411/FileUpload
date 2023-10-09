@@ -6,12 +6,12 @@ require('aws-sdk/lib/maintenance_mode_message').suppress = true;
 app.set('json spaces', 5); // to pretify json response
 
 const PORT = process.env.PORT || 9000;
-const fileparser = require('./fileparser');
+
 const uploadFile=require('./app')
 const mongoDB = require('./db.js')
 const methodOverride = require('method-override')
 
-// const apiRouter = require('./fileparser.js')
+
 
 const multer = require('multer');
 
